@@ -61,6 +61,28 @@ echo "<?php
             return new \PDO('mysql:host='.$5.';dbname='.$6.'', $7, $8, 
             array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION));
 }}?>">>$directory/App/Utils/BddConnect.php
+
+# test Flo
+echo "Vroom vroom..."
+echo "<?php
+    namespace App\\Utils;
+
+    class Response {
+        public static function send($status, $status_message, $data) {
+            header('Content-Type:application/json');
+            header('HTTP/1.1 ' . \$status);
+            \$response = [];
+            \$response['status'] = \$status;
+            \$response['status_message'] = \$status_message;
+            \$response['data'] = \$data;
+            \$json_response = json_encode(\$response);
+            echo \$json_response;
+            exit;
+        }
+    }
+?>" > $directory/App/Utils/Response.php
+
+echo "Response utility class has been created."
 # Création des pages de base du projet
 echo "<?php
     echo 'Erreur 404
@@ -95,6 +117,23 @@ echo "<?php
             break;
     }
 ?>">>$directory/index.php
+#gitignore
+echo "Creating .gitignore file..."
+echo "node_modules/
+vendor/
+*.env
+*.log
+.DS_Store
+*.swp
+*.bak
+*.tmp
+*.tmb
+*.mp4
+*.avi
+*.flv
+*.mov
+*.wmv" > $directory/.gitignore
+echo ".gitignore est la."
 # Création des fichiers asset
 touch $directory/Public/asset/script/script.js 
 touch $directory/Public/asset/style/style.css
