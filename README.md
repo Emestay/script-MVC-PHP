@@ -22,5 +22,5 @@ Le script va générer une base de projet PHP (MVC) avec les répertoires et fic
 
 ## Pour lancer le script :
 ```
-bash script3.sh
+bash mvc.sh
 ```
